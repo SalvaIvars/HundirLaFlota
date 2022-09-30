@@ -73,8 +73,8 @@
       <Label fx:id="lab" layoutX="297.0" layoutY="26.0" text="Hundir la Flota" />
       <RadioButton fx:id="radioBarco4" layoutX="69.0" layoutY="484.0" mnemonicParsing="false" text="Barco 4" />
       <RadioButton fx:id="radioBarco6" layoutX="215.0" layoutY="484.0" mnemonicParsing="false" selected="true" text="Barco 6" />
-      <RadioButton fx:id="radioBarco2" layoutX="363.0" layoutY="484.0" mnemonicParsing="false" text="Barco2" />
-      <RadioButton fx:id="radioBarco3" layoutX="504.0" layoutY="484.0" mnemonicParsing="false" text="Barco3" />
+      <RadioButton fx:id="radioBarco2" layoutX="363.0" layoutY="484.0" mnemonicParsing="false" text="Barco 2" />
+      <RadioButton fx:id="radioBarco3" layoutX="504.0" layoutY="484.0" mnemonicParsing="false" text="Barco 3" />
       <RadioButton fx:id="radioGirar" layoutX="286.0" layoutY="530.0" mnemonicParsing="false" onAction="#orientacionSeleccionada" text="Girar barco" />
       <Button fx:id="boton" layoutX="69.0" layoutY="526.0" mnemonicParsing="false" onAction="#cambiarVista" text="Siguiente" />
    </children>

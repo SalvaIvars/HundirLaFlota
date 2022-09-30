@@ -8,6 +8,7 @@ import javafx.scene.Scene
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.StackPane
 import javafx.stage.Stage
+import java.util.concurrent.TimeUnit
 
 class RivalController( val stage: Stage) : Application() {
 
@@ -47,7 +48,9 @@ class RivalController( val stage: Stage) : Application() {
         if(comprobarVictoria()) {
             cambiarVistaFinal("Jugador")
         }else{
-            cambiarVista()
+            if(ultimoDisparo.equals("azul")) {
+                cambiarVista()
+            }
         }
     }
 
@@ -176,33 +179,36 @@ class RivalController( val stage: Stage) : Application() {
         }
     }
 
-
     private fun comprobarEspacio(barco: Barco) : Boolean{
-        if(barco.orientacion.equals("V") ){
-            if( barco.x + barco.celdas <= 10) {
-                for (i in barco.x..barco.x + barco.celdas) {
-                    if (arr[i][barco.y] != 0) {
-                        return false
-                    }
-                }
-            }
-            else{
+        val i = barco.x
+        val j = barco.y
+        var ii: Int = barco.celdas
+        var jj: Int = barco.celdas
+
+        if(barco.orientacion.equals("V")){
+            if(i+ii > 10){
                 return false
             }
-        }else if (barco.orientacion.equals("H")){
-            if(barco.y + barco.celdas <= 10) {
-                for (i in barco.y..barco.y + barco.celdas) {
-                    if (arr[barco.x][i] != 0) {
-                        return false
-                    }
-                }
-            }else{
+            jj = 1
+        }else{
+            if(j+jj > 10){
                 return false
+            }
+            ii = 1
+
+        }
+        println("Orientacion: ${barco.orientacion}")
+        for(a in i until i+ii){
+            for(b in j until j+jj){
+                if (arr[a][b] != 0) {
+                    return false
+                }
             }
         }
 
-        return  true
+        return true;
     }
+
 
     override fun start(primaryStage: Stage?) {
         println("No funciona")

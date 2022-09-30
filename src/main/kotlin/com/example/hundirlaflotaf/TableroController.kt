@@ -26,10 +26,10 @@ class TableroController(val stage: Stage) : Application() {
     private lateinit var radioGirar: RadioButton
 
     lateinit var arr: Array<IntArray>
-    private var nBarcos4: Int = 5 // 3
-    private var nBarcos6: Int = 5 // 1
-    private var nBarcos2: Int = 2 // 2
-    private var nBarcos3: Int = 5 // 2
+    private var nBarcos4: Int = 0 // 3
+    private var nBarcos6: Int = 1 // 1
+    private var nBarcos2: Int = 0 // 2
+    private var nBarcos3: Int = 0 // 2
 
     fun initialize(){
         arr = Array(11) { IntArray(11) }
