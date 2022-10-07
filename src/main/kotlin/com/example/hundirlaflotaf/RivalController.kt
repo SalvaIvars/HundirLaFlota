@@ -64,10 +64,12 @@ class RivalController( val stage: Stage) : Application() {
                 }else if (arr[i][j] == 3){
                     cell = getNodeByRowColumnIndex(i,j,tablero)
                     cell?.style="-fx-background-color: aqua"
-                }else if (arr[i][j] == 1){
+                }
+                // View rival ships
+                 /*else if (arr[i][j] == 1){
                     cell = getNodeByRowColumnIndex(i,j,tablero)
                     cell?.style="-fx-background-color: black"
-                 }
+                 }*/
             }
         }
     }
@@ -179,35 +181,34 @@ class RivalController( val stage: Stage) : Application() {
         }
     }
 
-    private fun comprobarEspacio(barco: Barco) : Boolean{
+    private fun comprobarEspacio(barco: Barco) : Boolean {
         val i = barco.x
         val j = barco.y
         var ii: Int = barco.celdas
         var jj: Int = barco.celdas
 
-        if(barco.orientacion.equals("V")){
-            if(i+ii > 10){
+        if (barco.orientacion.equals("V")) {
+            if (i + ii > 10) {
                 return false
             }
             jj = 1
-        }else{
-            if(j+jj > 10){
+        } else {
+            if (j + jj > 10) {
                 return false
             }
             ii = 1
 
-        }
-        println("Orientacion: ${barco.orientacion}")
-        for(a in i until i+ii){
-            for(b in j until j+jj){
-                if (arr[a][b] != 0) {
-                    return false
+            for (a in i until i + ii) {
+                for (b in j until j + jj) {
+                    if (arr[a][b] != 0) {
+                        return false
+                    }
                 }
             }
         }
+            return true;
+        }
 
-        return true;
-    }
 
 
     override fun start(primaryStage: Stage?) {

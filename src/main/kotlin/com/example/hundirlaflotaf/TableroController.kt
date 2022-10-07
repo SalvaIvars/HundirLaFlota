@@ -5,7 +5,6 @@ import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
 import javafx.scene.Node
 import javafx.scene.Scene
-import javafx.scene.control.Button
 import javafx.scene.control.RadioButton
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.StackPane
@@ -26,10 +25,10 @@ class TableroController(val stage: Stage) : Application() {
     private lateinit var radioGirar: RadioButton
 
     lateinit var arr: Array<IntArray>
-    private var nBarcos4: Int = 0 // 3
+    private var nBarcos4: Int = 3 // 3
     private var nBarcos6: Int = 1 // 1
-    private var nBarcos2: Int = 0 // 2
-    private var nBarcos3: Int = 0 // 2
+    private var nBarcos2: Int = 2 // 2
+    private var nBarcos3: Int = 2 // 2
 
     fun initialize(){
         arr = Array(11) { IntArray(11) }
@@ -104,7 +103,7 @@ class TableroController(val stage: Stage) : Application() {
             jj = nCeldas
         }
 
-        var cell: Node? = null
+        var cell: Node?
         for(a in i until i+ii){
             for(b in j until j+jj){
                 cell = obtenerNodeFilaColumna(a,b,tablero)
@@ -215,7 +214,6 @@ class TableroController(val stage: Stage) : Application() {
             jj = nCeldas
         }
 
-        var cell: Node? = null
         for(a in i until i+ii){
             for(b in j until j+jj){
                 val stackP: Node? = obtenerNodeFilaColumna(a, b, tablero)
@@ -238,7 +236,6 @@ class TableroController(val stage: Stage) : Application() {
                 cell?.setOnMouseEntered {
                     run {
                         val nCeldas = barcoSeleccionado()
-                        var stackP: Node?
 
                         if(nCeldas != 0 && comprobarEspacio(i,j,tablero,nCeldas,orientacionSeleccionada())){
                             dibujarCeldasAzules(i,j,nCeldas,orientacionSeleccionada())
